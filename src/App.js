@@ -3,10 +3,11 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
+import CONFIG from './config';
 
 // Initialize Firebase
 var config = {
-    apiKey: "AIzaSyA9lf-vIxnR-5M53V3jozplEUd0iblnyng",
+    apiKey: CONFIG.apiKey,
     authDomain: "bloc-chat-40438.firebaseapp.com",
     databaseURL: "https://bloc-chat-40438.firebaseio.com",
     projectId: "bloc-chat-40438",

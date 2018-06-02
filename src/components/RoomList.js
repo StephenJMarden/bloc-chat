@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NewRoomForm from './NewRoomForm';
 
 class RoomList extends Component {
     constructor(props) {
@@ -20,9 +21,18 @@ class RoomList extends Component {
 
     render () {
         return (
-            this.state.rooms.map((room, index) =>
-                <div key={index}>{room.name}</div>
-            )
+            <div className="RoomList">
+                <div className="room-list">
+                    {
+                        this.state.rooms.map((room, index) =>
+                            <div key={index}>{room.name}</div>
+                        )
+                    }
+                </div>
+                <NewRoomForm
+                    firebase={this.props.firebase}
+                />
+            </div>
         );
     }
 }
