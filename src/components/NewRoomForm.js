@@ -20,6 +20,7 @@ class NewRoomForm extends Component {
         this.roomsRef.push({
             name: newRoomName
         });
+        this.setState({roomName: ""});
     }
 
     render() {
@@ -27,7 +28,7 @@ class NewRoomForm extends Component {
             <form onSubmit={(e) => this.handleSubmit(e)}>
                 <label>
                     Room Name:
-                    <input type="text" value={this.state.value} onChange={(e) => this.handleChange(e)} />
+                    <input type="text" value={this.state.roomName} onChange={(e) => this.handleChange(e)} />
                 </label>
                 <button type="submit">Create Room</button>
             </form>
