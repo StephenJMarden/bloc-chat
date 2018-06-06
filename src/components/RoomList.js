@@ -5,7 +5,7 @@ class RoomList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            rooms: [],
+            rooms: []
         }
 
         this.roomsRef = this.props.firebase.database().ref('rooms');
@@ -19,13 +19,21 @@ class RoomList extends Component {
         });
     }
 
+    handleClick(room) {
+        this.props.changeActiveRoom(room);
+    }
+
     render () {
         return (
             <div className="RoomList">
                 <div className="room-list">
                     {
                         this.state.rooms.map((room, index) =>
-                            <div key={index}>{room.name}</div>
+                            <div
+                                key={index}
+                                onClick={() => this.handleClick(room)}
+                                className={room.key === this.props.activeRoom.key ? "selected room" : "room"}
+                            >{room.name}</div>
                         )
                     }
                 </div>

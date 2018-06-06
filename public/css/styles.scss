@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.RoomList {
+    width: 20%;
+    height: 100%;
+    float: left;
+    background: gray;
+
+    .room {
+        cursor: pointer;
+    }
+}
+
+.MessageList {
+    margin-right: 3em;
+
+    .message {
+        display: flex;
+        justify-content: space-between;
+
+        .message-username {
+            flex: 0 auto;
+        }
+        .message-content {
+            flex: 1 auto;
+        }
+        .message-timestamp {
+            flex: 0 auto;
+        }
+    }
+}
+
+.selected {
+    color: blue;
+}
