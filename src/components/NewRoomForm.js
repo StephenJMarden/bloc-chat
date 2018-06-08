@@ -4,7 +4,7 @@ class NewRoomForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            roomName: ""
+            roomName: "My Room"
         }
 
         this.roomsRef = this.props.firebase.database().ref('rooms');
@@ -26,11 +26,11 @@ class NewRoomForm extends Component {
     render() {
         return (
             <form onSubmit={(e) => this.handleSubmit(e)}>
-                <label>
-                    Room Name:
+                <h2>Create New Room?</h2>
+                <div className="ui input">
                     <input type="text" value={this.state.roomName} onChange={(e) => this.handleChange(e)} />
-                </label>
-                <button type="submit">Create Room</button>
+                </div>
+                <button className="ui button primary" type="submit">Create Room</button>
             </form>
         );
     }

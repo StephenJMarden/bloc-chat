@@ -1,0 +1,97 @@
+main {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.RoomList {
+    width: 20%;
+    height: 100%;
+    float: left;
+    background: gray;
+    padding: 2em;
+    text-align: left;
+
+    .new-room-button {
+        float: right;
+    }
+
+    .room {
+        cursor: pointer;
+        margin-bottom: 0.5em;
+    }
+
+    h1 {
+        padding-bottom: 1em;
+        display: inline-block;
+    }
+
+    .new-room-modal {
+        width: 100vw;
+        height: 100vh;
+        background: rgba(26, 26, 26, 0.5);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 300;
+        display: none;
+
+        .modal-content {
+            position: relative;
+            border-radius: 5px;
+            padding: 3em;
+            border: 1px solid rgb(26, 26, 26);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .modal-exit {
+            position: absolute;
+            top: 0.5em;
+            right: 0.5em;
+        }
+    }
+
+    .active-modal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.MessageList {
+    h2 {
+        padding: 1em 0;
+    }
+
+    .message {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em 2em;
+
+        &:nth-child(odd) {
+            background: rgba(26, 26, 26, 0.1);
+        }
+
+        .message-info {
+            flex: 1 auto;
+            text-align: left;
+            .message-username, .message-content {
+                display: block;
+            }
+        }
+
+        .message-username {
+            font-weight: bold;
+        }
+
+        .message-timestamp {
+            flex: 0 auto;
+        }
+    }
+}
+
+.selected {
+    color: blue;
+}
