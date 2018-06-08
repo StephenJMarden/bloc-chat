@@ -40,21 +40,25 @@ class MessageList extends Component {
     render() {
         return (
             <div className="MessageList">
-                <h1>{this.props.activeRoom.name}</h1>
-                {
-                    this.state.messages.map((message, index) => {
-                        if(message.roomId === this.props.activeRoom.key) {
-                            return (
-                                <div className="message" key={index}>
-                                    <span className="message-username">{message.username}</span>
-                                    <span className="message-content">{message.content}</span>
-                                    <span className="message-timestamp">{this.formatDate(message.sentAt)}</span>
-                                </div>
-                            )
-                        }
-                        return "";
-                    })
-                }
+                <h2>{this.props.activeRoom.name}</h2>
+                <div className="message-container">
+                    {
+                        this.state.messages.map((message, index) => {
+                            if(message.roomId === this.props.activeRoom.key) {
+                                return (
+                                    <div className="message" key={index}>
+                                        <span className="message-info">
+                                            <span className="message-username">{message.username}</span>
+                                            <span className="message-content">{message.content}</span>
+                                        </span>
+                                        <span className="message-timestamp">{this.formatDate(message.sentAt)}</span>
+                                    </div>
+                                )
+                            }
+                            return "";
+                        })
+                    }
+                </div>
             </div>
         );
     }
