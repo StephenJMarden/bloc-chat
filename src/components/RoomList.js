@@ -41,7 +41,7 @@ class RoomList extends Component {
                 <div className={this.state.displayNewRoomModal ? "new-room-modal active-modal" : "new-room-modal"}>
                     <div className="modal-content">
                         <button onClick={() => this.closeNewRoomModal()} className="modal-exit ui icon button red"><i className="chevron down icon"></i></button>
-                        <NewRoomForm firebase={this.props.firebase} />
+                        <NewRoomForm firebase={this.props.firebase} closeModal={() => this.closeNewRoomModal()} />
                     </div>
                 </div>
 

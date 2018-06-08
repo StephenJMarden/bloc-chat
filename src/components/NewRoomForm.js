@@ -21,6 +21,7 @@ class NewRoomForm extends Component {
             name: newRoomName
         });
         this.setState({roomName: ""});
+        this.props.closeModal();
     }
 
     render() {
