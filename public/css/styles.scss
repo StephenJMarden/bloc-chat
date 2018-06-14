@@ -3,19 +3,29 @@ main {
     width: 100vw;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+nav {
+    flex: 0 auto;
+}
+
+.content {
+    flex: 1 auto;
 }
 
 .RoomList {
-    width: 20%;
-    height: 100%;
+    position: absolute;
+    left: 0;
+    z-index: 300;
+    width: 300px;
+    height: 90%;
     float: left;
     background: gray;
     padding: 2em;
     text-align: left;
-
-    .new-room-button {
-        float: right;
-    }
 
     .room {
         cursor: pointer;
@@ -23,8 +33,7 @@ main {
     }
 
     h1 {
-        padding-bottom: 1em;
-        display: inline-block;
+        margin-bottom: -0.5em !important;
     }
 
     .new-room-modal {
@@ -60,8 +69,22 @@ main {
 }
 
 .MessageList {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     h2 {
         padding: 1em 0;
+        flex: 0 auto;
+    }
+
+    .message-container {
+        flex: 1 auto;
+    }
+
+    .chatbox {
+        flex: 0 auto;
     }
 
     .message {
@@ -94,4 +117,13 @@ main {
 
 .selected {
     color: blue;
+}
+
+.icon.bars {
+    cursor: pointer;
+}
+
+.hidden {
+    position: absolute;
+    left: -10000px;
 }

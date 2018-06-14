@@ -34,9 +34,11 @@ class RoomList extends Component {
 
     render () {
         return (
-            <div className="RoomList">
-                <h1>Bloc Chat</h1>
-                <button className="ui button primary new-room-button" onClick={() => this.handleNewRoomClick()}>New Room</button>
+            <div className={this.props.menuActive ? "RoomList" : "hidden"}>
+                <h1 className="ui center aligned header">Bloc Chat</h1>
+                <div className="ui center aligned header">
+                    <button className="ui button primary new-room-button" onClick={() => this.handleNewRoomClick()}>New Room</button>
+                </div>
 
                 <div className={this.state.displayNewRoomModal ? "new-room-modal active-modal" : "new-room-modal"}>
                     <div className="modal-content">

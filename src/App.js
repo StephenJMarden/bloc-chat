@@ -22,45 +22,57 @@ class App extends Component {
       super(props);
       this.state = {
           activeRoom: {name: "Select a Room"},
-          activeUser: {}
+          activeUser: {},
+          menuActive: false
       }
   }
 
   changeActiveRoom(room) {
       this.setState({activeRoom: room});
+      this.toggleMenu();
   }
 
   setUser(user) {
       this.setState({activeUser: user});
   }
 
+  toggleMenu() {
+      this.state.menuActive ? this.setState({menuActive: false}) : this.setState({menuActive: true});
+  }
+
   render() {
     return (
         <div className="App">
-            <nav>
-                <div className="ui menu">
-                    <div className="item">
-                        <i className="icon bars"></i>
-                    </div>
-                    <div className="header big item">Bloc Chat</div>
+            <main>
+                <nav>
+                    <div className="ui borderless menu">
+                        <div className="item" onClick={() => this.toggleMenu()}>
+                            <i className="icon bars"></i>
+                        </div>
+                        <div className="header big item">Bloc Chat</div>
 
-                    <User
+                        <User
+                            firebase={firebase}
+                            activeUser={this.state.activeUser}
+                            setUser={(user) => this.setUser(user)}
+                        />
+                    </div>
+                </nav>
+
+                <div className="content">
+                    <RoomList
                         firebase={firebase}
+                        activeRoom={this.state.activeRoom}
+                        changeActiveRoom={(room) => this.changeActiveRoom(room)}
+                        menuActive={this.state.menuActive}
+                    />
+
+                    <MessageList
+                        firebase={firebase}
+                        activeRoom={this.state.activeRoom}
                         activeUser={this.state.activeUser}
-                        setUser={(user) => this.setUser(user)}
                     />
                 </div>
-            </nav>
-            <main>
-                <RoomList
-                    firebase={firebase}
-                    activeRoom={this.state.activeRoom}
-                    changeActiveRoom={(room) => this.changeActiveRoom(room)}
-                />
-                <MessageList
-                    firebase={firebase}
-                    activeRoom={this.state.activeRoom}
-                />
             </main>
         </div>
     );

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ChatBox from './ChatBox';
 
 class MessageList extends Component {
     constructor(props) {
@@ -59,6 +60,13 @@ class MessageList extends Component {
                         })
                     }
                 </div>
+
+                <ChatBox
+                    className="chatbox"
+                    firebase={this.props.firebase}
+                    activeRoom={this.props.activeRoom}
+                    activeUser={this.props.activeUser}
+                />
             </div>
         );
     }
